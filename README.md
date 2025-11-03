@@ -1,73 +1,254 @@
-# Welcome to your Lovable project
+# پنل مدیریت Font Store
 
-## Project info
+## 📱 درباره پروژه
 
-**URL**: https://lovable.dev/projects/0b60b06a-b968-41f5-b6c4-77368c7040be
+پنل مدیریت کامل برای اپلیکیشن Font Store با طراحی Glassmorphism مدرن و زیبا، ساخته شده با React، TypeScript و Tailwind CSS.
 
-## How can I edit this code?
+## ✨ ویژگی‌ها
 
-There are several ways of editing your application.
+### 1. داشبورد
+- نمایش آمار کاربران فعال (30 روز اخیر)
+- گزارش فروش و درآمد از مارکت‌های مختلف (کافه بازار، گوگل پلی، ادموب)
+- نمودار تعاملی فروش با فیلترهای زمانی (سی روز، هفت روز، دیروز، امروز)
+- نمایش تعداد فروش‌ها و روند رشد
 
-**Use Lovable**
+### 2. مدیریت فونت‌ها
+- آپلود فونت با قابلیت Drag & Drop
+- مدیریت فونت‌های فارسی، انگلیسی و عربی
+- حذف و ویرایش فونت‌ها
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0b60b06a-b968-41f5-b6c4-77368c7040be) and start prompting.
+### 3. اموجی و استیکر
+- آپلود اموجی و استیکر با Drag & Drop
+- نمایش آخرین آیتم‌های بارگزاری شده
+- دسته‌بندی جداگانه برای اموجی و استیکر
 
-Changes made via Lovable will be committed automatically to this repo.
+### 4. فروشگاه
+- پیکربندی قیمت برای 3 مارکت (کافه بازار، گوگل پلی، مایکت)
+- تنظیم قیمت برای 4 نوع اشتراک (یک ساله، شش ماهه، سه ماهه، ماهانه)
+- محاسبه خودکار قیمت با تخفیف
+- نمایش آمار درآمد و فروش هر مارکت
 
-**Use your preferred IDE**
+### 5. اعلان کاربران
+- ارسال اعلان FCM به کاربران
+- انتخاب کلاینت هدف (کافه بازار، گوگل پلی، مایکت یا همه)
+- افزودن تیتر، متن، ایکن و لینک
+- بارگزاری تصویر برای بنر
+- تعریف دکمه‌های اکشن
+- امکان ارسال داده‌های JSON سفارشی
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 6. پشتیبانی
+- مشاهده تیکت‌های دریافتی از کاربران
+- پاسخ به تیکت‌ها
+- ارسال تیکت جدید به کاربران
+- مدیریت وضعیت تیکت‌ها (باز/بسته)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 7. پیکربندی
+- تنظیمات کلی اپلیکیشن:
+  - مسدود سازی موقت برنامه
+  - قطع/وصل درگاه فروش
+  - قطع/وصل تبلیغات
+  - فعال/غیرفعال کردن سیستم تیکتینگ
+- تنظیمات AdMob (App ID، Banner، Interstitial، Rewarded)
+- لینک‌های شبکه‌های اجتماعی (اینستاگرام، تلگرام، فیسبوک)
+- پیکربندی Layout تخفیفات
+- لینک پاپ‌آپ ورود
 
-Follow these steps:
+## 🚀 نصب و راه‌اندازی
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+### پیش‌نیازها
+- Node.js v18 یا بالاتر
+- npm یا yarn
+
+### مراحل نصب
+
+```bash
+# 1. کلون کردن پروژه
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 2. نصب وابستگی‌ها
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 3. اجرای پروژه در حالت توسعه
 npm run dev
+
+# 4. بیلد برای پروداکشن
+npm run build
+
+# 5. پیش‌نمایش بیلد
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+پروژه روی آدرس `http://localhost:8080` در دسترس خواهد بود.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📁 ساختار پروژه
 
-**Use GitHub Codespaces**
+```
+src/
+├── components/
+│   ├── ui/                    # کامپوننت‌های رابط کاربری (shadcn)
+│   ├── DashboardLayout.tsx    # لی‌اوت اصلی با سایدبار
+│   └── StatCard.tsx           # کارت آماری قابل استفاده مجدد
+├── pages/
+│   ├── Dashboard.tsx          # صفحه داشبورد
+│   ├── Fonts.tsx              # مدیریت فونت‌ها
+│   ├── Emojis.tsx             # مدیریت اموجی و استیکر
+│   ├── Store.tsx              # پیکربندی فروشگاه
+│   ├── Notifications.tsx      # اعلان کاربران
+│   ├── Support.tsx            # پشتیبانی
+│   ├── Settings.tsx           # تنظیمات
+│   └── NotFound.tsx           # صفحه 404
+├── App.tsx                    # کامپوننت اصلی برنامه
+├── index.css                  # استایل‌های سراسری و Design System
+└── main.tsx                   # نقطه ورود برنامه
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎨 Design System
 
-## What technologies are used for this project?
+پروژه از یک سیستم طراحی یکپارچه استفاده می‌کند که در `src/index.css` و `tailwind.config.ts` تعریف شده است.
 
-This project is built with:
+### رنگ‌های اصلی
+- **Primary**: آبی روشن (برای دکمه‌ها و لینک‌های اصلی)
+- **Secondary**: بنفش (برای عناصر ثانویه)
+- **Accent**: سبز (برای موفقیت‌آمیز بودن)
+- **Success**: سبز تیره (برای پیام‌های موفقیت)
+- **Destructive**: قرمز (برای خطاها و حذف)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Glassmorphism
+دو کلاس اصلی برای افکت شیشه‌ای:
+- `.glass`: افکت ملایم
+- `.glass-strong`: افکت قوی‌تر
 
-## How can I deploy this project?
+### گرادیانت‌ها
+- `.gradient-primary`: گرادیانت آبی-بنفش
+- `.gradient-success`: گرادیانت سبز-آبی
 
-Simply open [Lovable](https://lovable.dev/projects/0b60b06a-b968-41f5-b6c4-77368c7040be) and click on Share -> Publish.
+## 🔧 سفارشی‌سازی
 
-## Can I connect a custom domain to my Lovable project?
+### تغییر رنگ‌ها
+رنگ‌ها را در `src/index.css` در قسمت `:root` تغییر دهید:
 
-Yes, you can!
+```css
+:root {
+  --primary: 200 100% 50%;        /* آبی روشن */
+  --secondary: 280 60% 55%;       /* بنفش */
+  --accent: 150 70% 50%;          /* سبز */
+  /* ... */
+}
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### افزودن صفحه جدید
+1. فایل صفحه را در `src/pages/` بسازید
+2. در `src/App.tsx` route جدید اضافه کنید
+3. در `src/components/DashboardLayout.tsx` آیتم منو اضافه کنید
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 🌐 اتصال به Backend
+
+### استفاده از Lovable Cloud
+برای افزودن قابلیت‌های backend (احراز هویت، دیتابیس، ذخیره‌سازی فایل):
+
+1. در پنل Lovable روی دکمه "Connect Lovable Cloud" کلیک کنید
+2. backend به صورت خودکار راه‌اندازی می‌شود
+3. از Supabase client برای دسترسی به دیتابیس استفاده کنید
+
+### نمونه کد اتصال
+
+```typescript
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.VITE_SUPABASE_URL!,
+  process.env.VITE_SUPABASE_ANON_KEY!
+);
+
+// مثال: دریافت فونت‌ها
+const { data, error } = await supabase
+  .from('fonts')
+  .select('*');
+```
+
+## 📝 نکات مهم
+
+### برای آپلود فایل
+در پروژه واقعی، تابع `handleDrop` را با کد آپلود واقعی جایگزین کنید:
+
+```typescript
+const handleDrop = async (e: React.DragEvent) => {
+  e.preventDefault();
+  const files = Array.from(e.dataTransfer.files);
+  
+  // آپلود فایل به سرور یا Supabase Storage
+  for (const file of files) {
+    const { data, error } = await supabase.storage
+      .from('fonts')
+      .upload(`public/${file.name}`, file);
+  }
+};
+```
+
+### برای ارسال FCM
+نیاز به تنظیم Firebase و کلید سرور دارید:
+
+```typescript
+const sendNotification = async (data: NotificationData) => {
+  const response = await fetch('YOUR_FIREBASE_FCM_ENDPOINT', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `key=${FCM_SERVER_KEY}`
+    },
+    body: JSON.stringify(data)
+  });
+};
+```
+
+### داده‌های نمونه
+تمام داده‌های نمایش داده شده (آمار، فونت‌ها، تیکت‌ها) نمونه‌های تستی هستند.
+برای استفاده واقعی، این داده‌ها را از API یا دیتابیس دریافت کنید.
+
+## 🛠️ تکنولوژی‌های استفاده شده
+
+- **React 18**: فریم‌ورک UI
+- **TypeScript**: Type Safety
+- **Vite**: Build Tool سریع
+- **Tailwind CSS**: استایل‌دهی Utility-First
+- **shadcn/ui**: کامپوننت‌های UI
+- **Lucide React**: آیکون‌های SVG
+- **React Router**: مسیریابی
+- **TanStack Query**: مدیریت State سرور
+
+## 📦 دیپلوی
+
+### دیپلوی در Lovable
+1. در پنل Lovable روی دکمه "Publish" کلیک کنید
+2. پروژه به صورت خودکار دیپلوی می‌شود
+
+### دیپلوی در سرویس‌های دیگر
+```bash
+# بیلد پروژه
+npm run build
+
+# فایل‌های بیلد شده در پوشه dist قرار می‌گیرند
+# این پوشه را روی سرویس میزبانی (Vercel، Netlify، etc.) آپلود کنید
+```
+
+## 🤝 مشارکت
+
+برای گزارش باگ یا پیشنهاد ویژگی جدید، لطفاً issue باز کنید.
+
+## 📄 لایسنس
+
+این پروژه تحت لایسنس MIT منتشر شده است.
+
+## 💝 توسعه‌دهندگان
+
+توسعه با ❤️ توسط **زمرد تیم**
+
+---
+
+## 🔗 لینک‌های مفید
+
+- [مستندات Lovable](https://docs.lovable.dev/)
+- [مستندات React](https://react.dev/)
+- [مستندات Tailwind CSS](https://tailwindcss.com/)
+- [مستندات shadcn/ui](https://ui.shadcn.com/)
